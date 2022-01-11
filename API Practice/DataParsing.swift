@@ -36,6 +36,7 @@ class FetchData : ObservableObject{
     
     struct Response: Codable{
         var totalResults : Int = 0
+        var currentWeather : String?
         var forecasts : [Forecast] = [Forecast]()
     }
 
