@@ -12,7 +12,7 @@ class FetchData : ObservableObject{
 
     init(){
         
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={84093e05f55a9182393f95986f3b9d57}")!
+        let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=40.025&lon=-75.2829&exclude=alerts,minutely,hourly&appid=84093e05f55a9182393f95986f3b9d57")!
         
         URLSession.shared.dataTask(with: url) {(data, response, errors) in
             guard let data = data else {
@@ -35,22 +35,36 @@ class FetchData : ObservableObject{
 }
     
     struct Response: Codable{
-        var totalResults : Int = 0
-        var currentWeather : String?
-        var forecasts : [Forecast] = [Forecast]()
+        //sets up the structs
+        var current : [Current] = [Current]()
+        var weather : [Weather] = [Weather]()
     }
 
-    struct Forecast : Codable{
-        var title : String?
-        var url : URL?
-        var urlToImage : URL?
-            
+//takes data from the json current array, has current data of weather
+    struct current : Codable{
+        var uvi : Double?
+        var humidity : Int?
+        var temp : Double?
+        var feels_like : Double?
             
     }
+
+//takes data from json weather array, has the specific types of weather
+struct weather: Codable{
+    var main : String?
+    var description : String?
+    //not entirely sure what to put for the icon because it is an image i think
+    var icon : String?
+    
+}
 
 
 // add an extension to the article struct so that we can use an array of articles
 // to dinamically create List.
-extension Forecast: Identifiable{
-   var id: String {return title!}
+extension current: Identifiable{
+   var id: Double {return temp!}
+}
+
+extension weather: Identifiable{
+    var id: String {return main!}
 }

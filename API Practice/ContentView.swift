@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Goodbye, world!")
-            .padding()
+        List(fetchData.responses.currents){current in
+            Text(current.temp!)
+        }
     }
 }
 
