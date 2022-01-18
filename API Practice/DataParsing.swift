@@ -11,7 +11,7 @@ class FetchData : ObservableObject{
     @Published var responses : Response = Response()
 
     init(){
-        
+        // this code here decodes the JSON in a much simpliler process
         let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=40.025&lon=-75.2829&exclude=alerts,minutely,hourly&appid=84093e05f55a9182393f95986f3b9d57")!
         
         URLSession.shared.dataTask(with: url) {(data, response, errors) in
@@ -55,6 +55,8 @@ struct weather: Codable{
     var description : String?
     //not entirely sure what to put for the icon because it is an image i think
     var icon : String?
+    //current.weather.icon
+    //might want to change icon to URL
     
 }
 

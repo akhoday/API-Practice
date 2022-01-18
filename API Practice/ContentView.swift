@@ -8,9 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        List(fetchData.responses.currents){current in
-            Text(current.temp!)
+
+        @StateObject var fetchData = FetchData()
+         
+         var body: some View {
+            
+             List(fetchData.responses.currents){ current in
+                 NavigationLink(
+                     destination: SwiftUIWebView(url: article.url),
+                     label: {
+                         HStack{
+                             KFImage(article.urlToImage)
+                                 .resizable()
+                                 .aspectRatio(contentMode: .fit)
+                                 .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                            
+                             Text(current.temp!)
+                             }
+                 })
+             }
+         }
+        
+        
+}
         }
     }
 }
