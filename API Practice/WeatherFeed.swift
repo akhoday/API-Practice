@@ -13,7 +13,7 @@ struct Current: Codeable{
     var humidity : Int?
     var temp : Double?
     var feels_like : Double?
-    var weather: [Current]?
+    var weather: [Current] = Weather() 
     
     
 }

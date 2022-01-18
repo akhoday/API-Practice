@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-
+ 
         @StateObject var fetchData = FetchData()
          
          var body: some View {
