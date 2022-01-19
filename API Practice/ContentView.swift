@@ -13,7 +13,7 @@ struct ContentView: View {
          
          var body: some View {
              List(fetchData.responses.currents){ current in
-                 NavigationLink(
+                 NavigationLink( 
                      destination: SwiftUIWebView(url: current.url),
                     label: {
                         HStack{
