@@ -15,7 +15,7 @@ struct ContentView: View {
              List(fetchData.responses.currents){ current in
                  NavigationLink(
                      destination: SwiftUIWebView(url: current.url),
-                     label: {
+                    label: {
                         HStack{
                             KFImage(current.urlToImage)
                                 .resizable()

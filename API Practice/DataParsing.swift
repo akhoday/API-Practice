@@ -32,7 +32,7 @@ class FetchData : ObservableObject{
             else{
                 print("can't decode JSON")
             }
-            }.resume()
+            }.resume() 
     }
 }
     
