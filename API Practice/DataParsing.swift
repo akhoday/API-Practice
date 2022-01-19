@@ -38,7 +38,7 @@ class FetchData : ObservableObject{
     
     struct Response: Codable{
         //sets up the structs
-        var current : [Current] = Current() 
+        var current : [Current] = [Current]()
         
     }
 }
@@ -46,10 +46,10 @@ class FetchData : ObservableObject{
 
 // add an extension to the article struct so that we can use an array of articles
 // to dinamically create List.
-extension current: Identifiable{
+extension Current: Identifiable{
    var id: Double {return temp!}
 }
 
-extension weather: Identifiable{
+extension Weather: Identifiable{
     var id: String {return main!}
 }
