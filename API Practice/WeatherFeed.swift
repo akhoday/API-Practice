@@ -7,13 +7,3 @@
 
 import Foundation
 
-//takes data from the json current array, has current data of weather
-struct Current: Codable{
-    var uvi : Double?
-    var humidity : Int?
-    var temp : Double?
-    var feels_like : Double?
-    var weather: [Current] = Weather()   
-    
-    
-}

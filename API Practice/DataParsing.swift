@@ -41,6 +41,27 @@ class FetchData : ObservableObject{
         var current : [Current] = [Current]()
         
     }
+
+//takes data from the json current array, has current data of weather
+struct Current: Codable{
+    var uvi : Double?
+    var humidity : Int?
+    var temp : Double?
+    var feels_like : Double?
+    var weather: [Weather] = [Weather]()
+    
+    
+}
+
+//takes data from json weather array, has the specific types of weather
+struct Weather: Codable{
+    var id : Int?
+    var main : String?
+    var description : String?
+    //not entirely sure what to put for the icon because it is an image i think
+    var icon : String?
+    //current.weather.icon
+    //might want to change icon to URL
 }
 
 
