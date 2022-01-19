@@ -12,22 +12,8 @@ struct ContentView: View {
         @StateObject var fetchData = FetchData()
          
          var body: some View {
-             List(fetchData.responses.currents){ current in
-                 NavigationLink( 
-                     destination: SwiftUIWebView(url: current.url),
-                    label: {
-                        HStack{
-                            KFImage(current.urlToImage)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                            
-                            Text(current.temp!)
-                             }
-                 })
-             }
+            Text("hello world")
          }
-        
         
 }
 
