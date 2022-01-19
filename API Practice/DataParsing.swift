@@ -18,7 +18,7 @@ class FetchData : ObservableObject{
         URLSession.shared.dataTask(with: url) {(data, response, errors) in
             guard let data = data else {
                 print("error")
-                return
+                return 
             }
             guard let dataAsString = String(data: data, encoding: .utf8) else {return}
            
