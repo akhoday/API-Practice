@@ -12,7 +12,7 @@ struct ContentView: View {
         @StateObject var fetchData = FetchData()
          
          var body: some View {
-            Text("hello world")
+            Text("no")
          }
         
 }
@@ -22,3 +22,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
