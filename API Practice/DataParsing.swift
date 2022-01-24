@@ -72,10 +72,13 @@ struct Weather: Codable{
 }
 
 
-// add an extension to the article struct so that we can use an array of articles
+// add an extension to current, daily, and weather struct so that we can use an array of different weather informations
 // to dinamically create List.
 extension Current: Identifiable{
-   var id: Double {return temp!}
+   var id: Double {return uvi!}
+}
+extension Daily: Identifiable{
+    var id: Double {return dt!}
 }
 
 extension Weather: Identifiable{
