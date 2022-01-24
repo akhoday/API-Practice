@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
- 
-        @StateObject var fetchData = FetchData()
-         
          var body: some View {
-            Text("no")
+            var mainList : [String] = ["Monday","Tuesday","Wednesday", "Thursday", "Friday"]
+            
+            NavigationView{
+                List(mainList.indices){ something in
+                    Text(mainList[something]).frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: .infinity, alignment: .center)
+                        .border(Color.red, width: 4)
+                }
+            }
+            
+            
          }
-        
 }
 
 struct ContentView_Previews: PreviewProvider {
