@@ -46,16 +46,18 @@ class FetchData : ObservableObject{
 struct Current: Codable{
     var uvi : Double?
     var humidity : Int?
-    var temp : Double?
-    var feels_like : Double?
-    var weather: [Weather] = [Weather]()
-    
-    
+    //var temp : Double?
+    //var feels_like : Double? - put this in daily instead, can change if we want to
 }
 
 struct Daily: Codable{
     var dt : Double?
-    
+    var temp: Double?
+    var dew_point : Double?
+    var feels_like: Double?
+    var sunrise: Double?
+    var sunset: Double?
+    var weather: [Weather] = [Weather]()
     
 }
 
