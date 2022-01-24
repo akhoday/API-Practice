@@ -46,16 +46,18 @@ class FetchData : ObservableObject{
 struct Current: Codable{
     var uvi : Double?
     var humidity : Int?
-    var temp : Double?
-    var feels_like : Double?
-    var weather: [Weather] = [Weather]()
-    
-    
+    //var temp : Double?
+    //var feels_like : Double? - put this in daily instead, can change if we want to
 }
 
 struct Daily: Codable{
     var dt : Double?
-    
+    var temp: Double?
+    var dew_point : Double?
+    var feels_like: Double?
+    var sunrise: Double?
+    var sunset: Double?
+    var weather: [Weather] = [Weather]()
     
 }
 
@@ -70,10 +72,13 @@ struct Weather: Codable{
 }
 
 
-// add an extension to the article struct so that we can use an array of articles
+// add an extension to current, daily, and weather struct so that we can use an array of different weather informations
 // to dinamically create List.
 extension Current: Identifiable{
-   var id: Double {return temp!}
+   var id: Double {return uvi!}
+}
+extension Daily: Identifiable{
+    var id: Double {return dt!}
 }
 
 extension Weather: Identifiable{
