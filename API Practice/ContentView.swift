@@ -13,8 +13,11 @@ struct ContentView: View {
             
             NavigationView{
                 List(mainList.indices){ something in
-                    Text(mainList[something]).frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: .infinity, alignment: .center)
-                        .border(Color.red, width: 4)
+                    NavigationLink (destination: WeatherInfoView(), label: {
+                        Text(mainList[something]).frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: .infinity, alignment: .center)
+                            .border(Color.red, width: 4)
+                })
+                    
                 }
             }
             

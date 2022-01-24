@@ -81,6 +81,6 @@ extension Daily: Identifiable{
     var id: Double {return dt!}
 }
 
-extension Weather: Identifiable{
+//extension Weather: Identifiable{
 
-}
+//}
