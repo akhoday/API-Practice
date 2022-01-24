@@ -53,6 +53,12 @@ struct Current: Codable{
     
 }
 
+struct Daily: Codable{
+    var dt : Double?
+    
+    
+}
+
 //takes data from json weather array, has the specific types of weather
 struct Weather: Codable{
     var main : String?
