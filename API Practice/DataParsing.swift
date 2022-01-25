@@ -37,14 +37,14 @@ class FetchData : ObservableObject{
             }
             }.resume() 
     }
-}
+
     
     struct Response: Codable{
         //sets up the structs
         var daily : [Daily] = [Daily]()
         
     }
-
+}
 //takes data from the json current array, has current data of weather
 struct Current: Codable{
     var uvi : Double?
@@ -52,6 +52,7 @@ struct Current: Codable{
     //var temp : Double?
     //var feels_like : Double? - put this in daily instead, can change if we want to
 }
+
 
 struct Daily: Codable{
     var dt : Double?
@@ -86,4 +87,3 @@ extension Daily: Identifiable{
 
 //extension Weather: Identifiable{
 
-//}

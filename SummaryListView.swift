@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct SummaryListView: View {
+    
+    @StateObject var fetchData = FetchData()
+    
     var body: some View {
         
-        var date = "Jan 24"
+        let date = fetchData.responses.daily
         var description = "really cold"
         var humidity = 0.5
         var low = 0.0
         var high = 100.0
         
         VStack {
-            Text(date)
+            Text(String(date.capacity))
                 .font(.title)
             Text(description)
             Text("Humidity: " + String(humidity))

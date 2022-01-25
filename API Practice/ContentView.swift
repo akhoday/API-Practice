@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var fetchData = FetchData()
+    
          var body: some View {
             
             //temporary list of dates
@@ -22,7 +25,7 @@ struct ContentView: View {
                 
                 //list of daily weather
                 NavigationView{
-                    List(mainList.indices){ something in
+                    List(fetchData.responses.daily) {day in
                         NavigationLink (destination: WeatherInfoView(), label: {
                             SummaryListView()
                     })
