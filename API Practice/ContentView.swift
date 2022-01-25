@@ -9,9 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
          var body: some View {
+            
+            //temporary list of dates
             var mainList : [String] = ["Monday","Tuesday","Wednesday", "Thursday", "Friday"]
+            
+            //vstack that includes the heading of the app and then then information from the list, linking the navigation view
+            //spacing is 0 so everything is comfortably close together
             VStack(spacing: 0){
+                
+                //gloves heading image
                 Image("weatherHeading").resizable().aspectRatio(contentMode: .fit)
+                
+                //list of daily weather
                 NavigationView{
                     List(mainList.indices){ something in
                         NavigationLink (destination: WeatherInfoView(), label: {
