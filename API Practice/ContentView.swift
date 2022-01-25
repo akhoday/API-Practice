@@ -11,7 +11,7 @@ struct ContentView: View {
          var body: some View {
             
             //temporary list of dates
-            var mainList : [String] = ["Monday","Tuesday","Wednesday", "Thursday", "Friday"]
+            var mainList : [String] = ["Monday", "Tuesday"]
             
             //vstack that includes the heading of the app and then then information from the list, linking the navigation view
             //spacing is 0 so everything is comfortably close together
@@ -24,8 +24,7 @@ struct ContentView: View {
                 NavigationView{
                     List(mainList.indices){ something in
                         NavigationLink (destination: WeatherInfoView(), label: {
-                            Text(mainList[something]).frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 0, idealHeight: 100, maxHeight: .infinity, alignment: .center)
-                                .border(Color.red, width: 4)
+                            SummaryListView()
                     })
                         
                     }
