@@ -61,6 +61,8 @@ struct Daily: Codable{
     var feels_like: Double?
     var sunrise: Double?
     var sunset: Double?
+    var min: Double?
+    var max: Double?
     var weather: [Weather] = [Weather]()
     
 }

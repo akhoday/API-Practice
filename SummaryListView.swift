@@ -10,23 +10,23 @@ import SwiftUI
 struct SummaryListView: View {
     
     @StateObject var fetchData = FetchData()
-    
+    @Binding var daily : Daily
     var body: some View {
         
-        let date = fetchData.responses.daily
-        var description = "really cold"
-        var humidity = 0.5
-        var low = 0.0
-        var high = 100.0
+        let date = daily.dt
+        var sunrise = daily.sunrise
+        var dewpoint = daily.dew_point
+        var low = daily.min
+        var high = daily.max
         
         VStack {
-            Text(String(date.capacity))
+            Text(String(date!))
                 .font(.title)
-            Text(description)
-            Text("Humidity: " + String(humidity))
+            Text(String(sunrise!))
+            Text("Dew Point: " + String(dewpoint!))
             HStack{
-                Text("Low: " + String(low))
-                Text("High: " + String(high))
+                Text("Low: " + String(low!))
+                Text("High: " + String(high!))
             }
 
         }
@@ -39,6 +39,6 @@ struct SummaryListView: View {
 
 struct SummaryListView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryListView()
+        SummaryListView(daily: Binding.constant(Daily()))
     }
 }
