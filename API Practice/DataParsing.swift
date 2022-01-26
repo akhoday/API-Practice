@@ -9,7 +9,7 @@ import Foundation
 
 class FetchData : ObservableObject{
     @Published var responses : Response = Response()
-
+    
     init(){
         // this code here decodes the JSON in a much simpliler process
         
@@ -22,30 +22,30 @@ class FetchData : ObservableObject{
                 return 
             }
             guard let dataAsString = String(data: data, encoding: .utf8) else {return}
-           
+            
             let decoder = JSONDecoder()
-           
+            
             if let response = try? decoder.decode(Response.self, from: data) {
                 DispatchQueue.main.async {
                     self.responses = response
-                    }
                 }
+            }
             
             //fall back incase the json is unable to be parsed
             else{
                 print("can't decode JSON")
             }
-            }.resume() 
-    }
-
-    
-    struct Response: Codable{
-        //sets up the structs
-        var totalResults : Int = 0
-        var daily : [Daily] = [Daily]()
-        
+        }.resume()
     }
 }
+
+struct Response: Codable{
+    //sets up the structs
+    var totalResults : Int = 0
+    var daily : [Daily] = [Daily]()
+    
+}
+
 //takes data from the json current array, has current data of weather
 struct Current: Codable{
     var uvi : Double?
@@ -64,7 +64,9 @@ struct Daily: Codable{
     var sunset: Double?
     var min: Double?
     var max: Double?
+    var day: Double?
     var weather: [Weather] = [Weather]()
+    
     
 }
 
@@ -82,7 +84,7 @@ struct Weather: Codable{
 // add an extension to current, daily, and weather struct so that we can use an array of different weather informations
 // to dinamically create List.
 extension Current: Identifiable{
-   var id: Double {return uvi!}
+    var id: Double {return uvi!}
 }
 extension Daily: Identifiable{
     var id: Double {return dt!}

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/s016602/Desktop/Seminar/API Practice/SummaryListElement.swift">
-   </FileRef>
-   <FileRef
       location = "group:API Practice.xcodeproj">
    </FileRef>
    <FileRef

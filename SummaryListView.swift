@@ -13,21 +13,25 @@ struct SummaryListView: View {
     var daily : Daily
     var body: some View {
         
-        var date = daily.dt
-        var sunrise = daily.sunrise
-        var dewpoint = daily.dew_point
-        var low = daily.min
-        var high = daily.max
+        //taking values from the daily object provided
+        let date = daily.dt
+        let daytemp = daily.day
+        let dewpoint = daily.dew_point
+        let low = daily.min
+        let high = daily.max
         
+        //lists information for viewer
         VStack {
-            Text(String(date!))
+            Text("Date: " + String(date!))
                 .font(.title)
-            Text(String(sunrise!))
+            Text("Temp:" + String(daytemp!))
             Text("Dew Point: " + String(dewpoint!))
             HStack{
                 Text("Low: " + String(low!))
                 Text("High: " + String(high!))
+                
             }
+            
 
         }
         .padding(0.0)
