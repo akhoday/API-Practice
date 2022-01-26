@@ -41,6 +41,7 @@ class FetchData : ObservableObject{
     
     struct Response: Codable{
         //sets up the structs
+        var totalResults : Int = 0
         var daily : [Daily] = [Daily]()
         
     }

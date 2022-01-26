@@ -10,10 +10,10 @@ import SwiftUI
 struct SummaryListView: View {
     
     @StateObject var fetchData = FetchData()
-    @Binding var daily : Daily
+    var daily : Daily
     var body: some View {
         
-        let date = daily.dt
+        var date = daily.dt
         var sunrise = daily.sunrise
         var dewpoint = daily.dew_point
         var low = daily.min
@@ -39,6 +39,6 @@ struct SummaryListView: View {
 
 struct SummaryListView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryListView(daily: Binding.constant(Daily()))
+        SummaryListView(daily: Daily())
     }
 }

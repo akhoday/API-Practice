@@ -14,7 +14,6 @@ struct ContentView: View {
          var body: some View {
             
             //temporary list of dates
-            var mainList : [String] = ["Monday", "Tuesday"]
             
             //vstack that includes the heading of the app and then then information from the list, linking the navigation view
             //spacing is 0 so everything is comfortably close together
@@ -27,7 +26,7 @@ struct ContentView: View {
                 NavigationView{
                     List(fetchData.responses.daily) {day in
                         NavigationLink (destination: WeatherInfoView(), label: {
-                            SummaryListView()
+                            Text(String(day))
                     })
                         
                     }
