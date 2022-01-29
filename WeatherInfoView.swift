@@ -10,23 +10,27 @@ import SwiftUI
 struct WeatherInfoView: View {
     
     //reading in a set of daily data as a parameter
-    var daily : Daily
+   /* var daily : Daily
     var weather : Weather
+    */
+    var n : Int
     
     var body: some View {
         
         //collect weather JSON data
         //date, sunrise, dew point, low, high for the given day
-        let date = daily.dt
+     /*   let date = daily.dt
         let icon = weather.icon
         let description = weather.description
         let sunrise = daily.sunrise
         let sunset = daily.sunset
         let low = daily.min
+        */
         
         VStack {
+            Text("WeatherInfoView: " + String(n))
             //display data in format that will be listed in NavigationView
-            Text("Date:" + String(date!))
+           /* Text("Date:" + String(date!))
                 .font(.title)
             Text(String(icon!))
             Text("Description: " + String(description!))
@@ -36,7 +40,7 @@ struct WeatherInfoView: View {
             }
             if (low! < 30.0) {
                 Text("You need to wear gloves")
-            }
+            }*/
 
         }
         .padding(0.0)
@@ -46,8 +50,8 @@ struct WeatherInfoView: View {
     }
 }
 
-struct WeatherInfoView_Previews: PreviewProvider {
+/*struct WeatherInfoView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherInfoView(daily: Daily(), weather: Weather())
     }
-}
+}*/

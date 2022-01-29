@@ -9,19 +9,23 @@ import Foundation
 
 class FetchData : ObservableObject{
     @Published var responses : Response = Response()
-    
+   // @Published var JSONString : String = "Blank"
     init(){
+        
         // this code here decodes the JSON in a much simpliler process
         
         //url from our api site, grabs daily weather. from openweathermap.com. passed imperial so temperautres are in fahrenheit which most americans (and people we are selling to) will understand
         let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=40.025&lon=-75.2829&exclude=alerts,minutely,hourly&units=imperial&appid=84093e05f55a9182393f95986f3b9d57")!
         
+            
         URLSession.shared.dataTask(with: url) {(data, response, errors) in
             guard let data = data else {
                 print("error")
                 return 
             }
             guard let dataAsString = String(data: data, encoding: .utf8) else {return}
+ 
+           // let JSONString = dataAsString
             
             let decoder = JSONDecoder()
             
@@ -29,8 +33,9 @@ class FetchData : ObservableObject{
                 DispatchQueue.main.async {
                     self.responses = response
                 }
+                print(dataAsString)
             }
-            
+        
             //fall back incase the json is unable to be parsed
             else{
                 print("can't decode JSON")
@@ -65,9 +70,7 @@ struct Daily: Codable{
     var min: Double?
     var max: Double?
     var day: Double?
-    var weather: [Weather] = [Weather]()
-    
-    
+    var weather: Weather = Weather()
 }
 
 //takes data from json weather array, has the specific types of weather
@@ -88,6 +91,10 @@ extension Current: Identifiable{
 }
 extension Daily: Identifiable{
     var id: Double {return dt!}
+}
+
+extension Weather: Identifiable{
+    var id: String {return description!}
 }
 
 //extension Weather: Identifiable{
