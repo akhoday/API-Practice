@@ -9,7 +9,6 @@ import Foundation
 
 class FetchData : ObservableObject{
     @Published var responses : Response = Response()
-   // @Published var JSONString : String = "Blank"
     init(){
         
         // this code here decodes the JSON in a much simpliler process
@@ -52,12 +51,6 @@ struct Response: Codable{
 }
 
 //takes data from the json current array, has current data of weather
-struct Current: Codable{
-    var uvi : Double?
-    var humidity : Int?
-    //var temp : Double?
-    //var feels_like : Double? - put this in daily instead, can change if we want to
-}
 
 
 struct Daily: Codable{
@@ -84,11 +77,8 @@ struct Weather: Codable{
 }
 
 
-// add an extension to current, daily, and weather struct so that we can use an array of different weather informations
-// to dinamically create List.
-extension Current: Identifiable{
-    var id: Double {return uvi!}
-}
+// add an extension to daily and weather struct so that we can use an array of different weather informations
+// to dynamically create List.
 extension Daily: Identifiable{
     var id: Double {return dt!}
 }
@@ -97,5 +87,4 @@ extension Weather: Identifiable{
     var id: String {return description!}
 }
 
-//extension Weather: Identifiable{
 

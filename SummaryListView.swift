@@ -9,21 +9,22 @@ import SwiftUI
 
 struct SummaryListView: View {
     
-    /*@StateObject var fetchData = FetchData()
+    //parameters: daily of type Daily
+    //this is given a day from the list in the contentview and displays information specific to that day
     var daily : Daily
- */
-    var title : String = "SummaryListView"
-    var n : Int
-   
-    
+ 
     var body: some View {
         
-    
-        //lists information for viewer
+        //parsed JSON information
+        let date = daily.dt
+        let daytemp = daily.temp
+        let dewpoint = daily.dew_point
+        let low = daily.min
+        let high = daily.max
+        
+        //lists basic weather information for viewer
+        //to be seen on opening page
         VStack {
-            Text(title + ": " + String(n))
-            Text("Help")
-            /*
             Text("Date: " + String(date!))
                 .font(.title)
             Text("Temp:" + String(daytemp!))
@@ -33,20 +34,20 @@ struct SummaryListView: View {
                 Text("High: " + String(high!))
                 
             }
-            */
+            
 
         }
         .padding(0.0)
         .frame(width: 250, height: 140)
-        .border(Color.red, width: /*@START_MENU_TOKEN@*/8/*@END_MENU_TOKEN@*/) .foregroundColor(.red)
+        .border(Color.blue, width: /*@START_MENU_TOKEN@*/8/*@END_MENU_TOKEN@*/) .foregroundColor(.blue)
    
     }
 }
 
-/*struct SummaryListView_Previews: PreviewProvider {
+struct SummaryListView_Previews: PreviewProvider {
     static var previews: some View {
         SummaryListView(daily: Daily())
 
     }
 }
-*/
+
