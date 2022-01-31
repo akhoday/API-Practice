@@ -14,7 +14,7 @@ class FetchData : ObservableObject{
         // this code here decodes the JSON in a much simpliler process
         
         //url from our api site, grabs daily weather. from openweathermap.com. passed imperial so temperautres are in fahrenheit which most americans (and people we are selling to) will understand
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=40.025&lon=-75.2829&exclude=alerts,minutely,hourly&units=imperial&appid=84093e05f55a9182393f95986f3b9d57")!
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=40.025&lon=-75.2829&exclude=alerts,minutely,hourly&units=imperial&appid=84093e05f55a9182393f95986f3b9d57") else{return}
         
             
         URLSession.shared.dataTask(with: url) {(data, response, errors) in
