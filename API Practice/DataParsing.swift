@@ -83,7 +83,7 @@ extension Daily: Identifiable{
 }
 
 extension Weather: Identifiable{
-    var id: String {return description!}
+    var id: String {return main!}
 }
 
 
