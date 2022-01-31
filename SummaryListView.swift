@@ -17,18 +17,19 @@ struct SummaryListView: View {
         
         //parsed JSON information
         let date = daily.dt
-        let daytemp = daily.temp
-        let dewpoint = daily.dew_point
+        let dewpoint = daily.point
         let low = daily.min
         let high = daily.max
+        let like = daily.like
         
         //lists basic weather information for viewer
         //to be seen on opening page
         VStack {
             Text("Date: " + String(date!))
                 .font(.title)
-            Text("Temp:" + String(daytemp!))
             Text("Dew Point: " + String(dewpoint!))
+            Text("Feels Like: " +
+                String(like!))
             HStack{
                 Text("Low: " + String(low!))
                 Text("High: " + String(high!))
